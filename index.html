@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Mg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff3399;
+        }
+        img {
+            width: 250px;
+            border-radius: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 2px 2px  #ff006638;
+        }
+        button:hover{
+            box-shadow: 2px 2px 2px 2px  #ff006638;
+            opacity: 0.95;
+            scale: 0.95;
+        }
+        body {
+        font-family: 'Padauk', 'Pyidaungsu', sans-serif;
+        } 
+        #message {
+        margin-top: 15px;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday Mg 🎂💖</h1>
+    <img src="image/mygif1.gif" alt="Our Photo">
+    <!--<p>You are the best thing that happened in my life 💕</p>-->
+    <p> စံပယ့်ရဲ့ မောင်ရေ မွေးနေ့မှာ ပျော်ရွှင်ပါစေနော်💕</p>
+
+    <button id="openBtn">ဖွင့်ရန် 💌</button>
+    <button id="closeBtn">ပိတ်ရန် 💌</button>
+
+    <p id="message" style="color:#ff0066; font-weight:bold;"></p>
+    <script>
+        const closeBtn = document.getElementById("closeBtn");
+        const message = document.getElementById("message");
+
+        closeBtn.addEventListener("click", function() {
+        message.innerText = "ပိတ်လိုက်ရင် စံပယ် စိတ်ကောက်မှာနော် 😤💕";
+        message.style.opacity = "1"; 
+        closeBtn.style.display = "none"; // close button ဖျောက်
+         });
+
+        const openBtn = document.getElementById("openBtn");
+        openBtn.addEventListener("click", function() {
+        window.location.href = "menu.html";
+        });
+    </script>
+
+</body>
+</html>
