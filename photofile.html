@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    background: #fff0f5;
+    font-family: 'Padauk', 'Pyidaungsu', sans-serif;
+}
+
+h2 {
+    color: #ff3399;
+    font-size: 22px;
+}
+
+/* 🎞 SLIDESHOW */
+.slideshow {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* 📸 GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* mobile default */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(0.95);
+}
+
+/* 🖼 PREVIEW */
+.preview {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+}
+
+.preview img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 15px;
+}
+
+/* 🔙 BUTTON */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+/* 📱 Tablet */
+@media (min-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .slide img {
+        height: 260px;
+    }
+}
+
+/* 💻 Desktop */
+@media (min-width: 900px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    .slideshow {
+        max-width: 500px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery img {
+        height: 150px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Our Memories 💕</h2>
+
+<!-- 🎞 SLIDESHOW -->
+<div class="slideshow">
+    <div class="slide"><img src="image/photo_5.png"></div>
+    <div class="slide"><img src="image/photo_7.jpg"></div>
+    <div class="slide"><img src="image/photo_5.png"></div>
+</div>
+
+<!-- 📸 GALLERY -->
+<div class="gallery">
+    <img src="image/photo_5.png" onclick="openPreview(this.src)">
+    <img src="image/photo_7.jpg" onclick="openPreview(this.src)">
+    <img src="image/pic3.jpg" onclick="openPreview(this.src)">
+    <img src="image/pic4.jpg" onclick="openPreview(this.src)">
+    <img src="image/pic5.jpg" onclick="openPreview(this.src)">
+</div>
+
+<!-- 🖼 PREVIEW -->
+<div class="preview" id="preview" onclick="closePreview()">
+    <img id="previewImg">
+</div>
+
+<button onclick="goBack()">Back 💌</button>
+
+<script>
+/* 🎞 SLIDESHOW */
+let index = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    index++;
+    if (index > slides.length) { index = 1 }
+
+    slides[index - 1].style.display = "block";
+
+    setTimeout(showSlides, 2500);
+}
+
+/* 🖼 PREVIEW */
+function openPreview(src) {
+    document.getElementById("preview").style.display = "flex";
+    document.getElementById("previewImg").src = src;
+}
+
+function closePreview() {
+    document.getElementById("preview").style.display = "none";
+}
+
+/* 🔙 BACK */
+function goBack() {
+    window.location.href = "menu.html";
+}
+</script>
+
+</body>
+</html>
